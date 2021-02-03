@@ -2,7 +2,6 @@ package Exercicio1;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.stream.StreamSupport;
 
 public class Pessoa {
     private String nome;
@@ -39,18 +38,22 @@ public class Pessoa {
         this.altura = altura;
     }
 
-    public static void calculaIdade(){
+    public static int calculaIdade(){
         Calendar dataAtual = Calendar.getInstance();
         System.out.printf("%tD\n", dataAtual);
 
         Date calendario = new Date(1998,0,13);
-        System.out.printf(String.valueOf(calendario));
+//        System.out.printf(String.valueOf(calendario));
+
+        return 0;
     }
 
     public static void exibePessoa(Pessoa pessoa){
         System.out.println("Nome: " + pessoa.getNome());
         System.out.println("Altura: " + pessoa.getAltura() + " cm");
         System.out.println("Data de nascimento: " + pessoa.getDataNascimento());
+        int idade = calculaIdade();
+        System.out.println("Idade: " + idade);
     }
 
     public static void main(String[] args) {
