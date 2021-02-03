@@ -14,28 +14,20 @@ public class Pessoa {
         this.altura = altura;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
     public double getAltura() {
         return altura;
-    }
-
-    public void setAltura(double altura) {
-        this.altura = altura;
     }
 
 //    public static void calculaIdade(Date dataRecebida) {
@@ -45,19 +37,23 @@ public class Pessoa {
 //        int idade = Pessoa.calculateAge(dataNascimento, LocalDate.of(2021,2,21));
 //    }
 
-    public static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
-        if ((birthDate != null) && (currentDate != null)) {
-            return Period.between(birthDate, currentDate).getYears();
-        } else {
-            return 0;
-        }
+    //    public static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
+//        if ((birthDate != null) && (currentDate != null)) {
+//            return Period.between(birthDate, currentDate).getYears();
+//        } else {
+//            return 0;
+//        }
+//    }
+
+    public static int calculaIdade(LocalDate dataNascimento, LocalDate atual){
+        return Period.between(dataNascimento, atual).getYears();
     }
 
     public static void exibePessoa(Pessoa pessoa) {
         System.out.println("Nome: " + pessoa.getNome());
         System.out.println("Altura: " + pessoa.getAltura() + " cm");
         System.out.println("Data de nascimento: " + pessoa.getDataNascimento());
-        int idade = Pessoa.calculateAge(pessoa.getDataNascimento(), LocalDate.now());
+        int idade = calculaIdade(pessoa.getDataNascimento(), LocalDate.now());
         System.out.println("Idade: " + idade);
     }
 
