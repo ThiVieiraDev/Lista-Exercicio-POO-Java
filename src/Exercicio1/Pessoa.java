@@ -2,11 +2,18 @@ package Exercicio1;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.stream.StreamSupport;
 
 public class Pessoa {
     private String nome;
     private Date dataNascimento;
     private double altura;
+
+    public Pessoa(String nome, Date dataNascimento, double altura) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.altura = altura;
+    }
 
     public String getNome() {
         return nome;
@@ -42,16 +49,13 @@ public class Pessoa {
 
     public static void exibePessoa(Pessoa pessoa){
         System.out.println("Nome: " + pessoa.getNome());
-        System.out.println("Altura: " + pessoa.getAltura());
+        System.out.println("Altura: " + pessoa.getAltura() + " cm");
+        System.out.println("Data de nascimento: " + pessoa.getDataNascimento());
     }
 
     public static void main(String[] args) {
-        Pessoa clienteUm = new Pessoa();
-
-        clienteUm.setNome("Thiago");
-        clienteUm.setAltura(1.92);
-//        clienteUm.setDataNascimento("13/01/1998");
+        Date teste = new Date(1998,0,13);
+        Pessoa clienteUm = new Pessoa("Thiago",teste,1.92);
         exibePessoa(clienteUm);
-        calculaIdade();
     }
 }
