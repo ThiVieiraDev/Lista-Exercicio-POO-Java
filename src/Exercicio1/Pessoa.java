@@ -1,5 +1,6 @@
 package Exercicio1;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -38,27 +39,30 @@ public class Pessoa {
         this.altura = altura;
     }
 
-    public static int calculaIdade(){
-        Calendar dataAtual = Calendar.getInstance();
-        System.out.printf("%tD\n", dataAtual);
+    public static void calculaIdade(Date dataRecebida){
+//        Calendar dataAtual = Calendar.getInstance();
+//        System.out.printf("%tD\n", dataAtual);
 
-        Date calendario = new Date(1998,0,13);
-//        System.out.printf(String.valueOf(calendario));
+        Date dataAtual = new Date();
+        System.out.println(dataAtual.);
 
-        return 0;
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+        int idade = 0;
+        System.out.println("Idade: " + idade);
     }
 
     public static void exibePessoa(Pessoa pessoa){
         System.out.println("Nome: " + pessoa.getNome());
         System.out.println("Altura: " + pessoa.getAltura() + " cm");
         System.out.println("Data de nascimento: " + pessoa.getDataNascimento());
-        int idade = calculaIdade();
-        System.out.println("Idade: " + idade);
+        calculaIdade(pessoa.getDataNascimento());
+//        System.out.println("Idade: " + idade);
     }
 
     public static void main(String[] args) {
-        Date teste = new Date(1998,0,13);
-        Pessoa clienteUm = new Pessoa("Thiago",teste,1.92);
+        Date idade = new Date(1998 - 1900,0,13);
+        Pessoa clienteUm = new Pessoa("Thiago", idade,1.92);
         exibePessoa(clienteUm);
     }
 }
